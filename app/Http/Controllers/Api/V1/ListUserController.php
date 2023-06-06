@@ -22,7 +22,7 @@ class ListUserController extends Controller
 
         return response()->json([
             'status' => 200,
-            'data' => $collection
+            'data' => $collection,
         ]);
     }
 }

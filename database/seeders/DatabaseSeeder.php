@@ -17,6 +17,5 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CreateUserDefaultSeeder::class);
         User::factory(10)->create();
-        Vehicle::factory(10)->create();
     }
 }
