@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+    app:
+        build:
+            context: ./
+            dockerfile: .deploy/Dockerfile
+        image: test-backend-inosoft-05062023
+        container_name: test-backend-inosoft-05062023
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        ports:
+            - "8100:80"
