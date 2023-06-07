@@ -25,18 +25,23 @@ if (!function_exists('ApiResponse')) {
             ],
             'data' => $data,
         ];
+
         if (!empty($meta)) {
             $response['meta'] = array_merge($response['meta'], $meta);
         }
+
         if (!empty($other)) {
             $response = array_merge($response, $other);
         }
+
         if (config('app.env') === 'production') {
             unset($response['dev']);
         }
+
         if (!$data) {
             unset($response['data']);
         }
+
         return response()->json($response, $status);
     }
 }

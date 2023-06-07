@@ -5,6 +5,7 @@
 ### Project's Description
 
 This project (repository) is a Laravel 8 based Api.
+Postmant collection can be found [here](https://api.postman.com/collections/584149-81fb305a-cb5b-4eaa-9b2c-cafb1076e8a4?access_key=PMAT-01H29F9470SA80PD5NVGQG08EK).
 
 ## Prerequisites
 
