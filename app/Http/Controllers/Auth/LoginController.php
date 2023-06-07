@@ -11,6 +11,11 @@ class LoginController extends Controller
 {
     function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
         $input = $request->all();
 
         if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
@@ -22,6 +27,6 @@ class LoginController extends Controller
             ]);
         }
 
-
+        return CustomResponse::error('Unauthorised', 401);
     }
 }
