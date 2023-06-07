@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 if (!function_exists('responseData')) {
     function responseData($data = null, $info = [], $status = 200): JsonResponse
@@ -16,7 +17,7 @@ if (!function_exists('responseData')) {
 }
 
 if (!function_exists('ApiResponse')) {
-    function ApiResponse($data = null, $meta = [], $other = [], $description = "Success", $status = Responsep::HTTP_OK): JsonResponse
+    function ApiResponse($data = null, $meta = [], $other = [], $description = "Success", $status = Response::HTTP_OK): JsonResponse
     {
         $response = [
             'meta' => [

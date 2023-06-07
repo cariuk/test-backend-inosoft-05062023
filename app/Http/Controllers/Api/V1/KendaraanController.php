@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\CustomResponse;
-use App\Repositories\UserRepository;
+use App\Repositories\KendaraanRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class ListUserController extends Controller
+class KendaraanController extends Controller
 {
     function __construct(
-        protected UserRepository $userRepository
+        protected KendaraanRepository $kendaraanRepository
     )
     {
 
@@ -19,7 +19,11 @@ class ListUserController extends Controller
 
     function get(Request $request): JsonResponse
     {
-        $collection = $this->userRepository->getList($request, true);
+        $request->validate([
+            'tipe' => 'required|in:mobil,motor',
+        ]);
+
+        $collection = $this->kendaraanRepository->getList($request,true);
 
         return CustomResponse::withPagination($collection->items(), $collection);
     }
